@@ -19,7 +19,7 @@ TITLE="noVNC Desktop Agent"
 MSG_CLOSE_OLD="There is an already running instance and it will be terminated.\nDo you want to continue?"
 MSG_SHARE="Do you want to share your desktop?"
 MSG_SHARE_INFO="\nPlease, send the connection link and the password to your colleague"
-MSG_CLOSE="The desktop sharing session is started. Close this windows to terminate"
+MSG_CLOSE="The desktop sharing session is started. Close this window to terminate"
 MSG_CONNECTED="someone connected from"
 
 
