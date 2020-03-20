@@ -21,7 +21,7 @@ pip3 install websockify
 ```
 
 ## Run
-Edit NOVNC_SERVER in the script before running it. Use your noVNC server
+Edit `NOVNC_SERVER` in the script before running it. Use your noVNC server
 address:
 
 ```
