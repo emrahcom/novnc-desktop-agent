@@ -31,7 +31,7 @@ RUNDIR="/var/run/user/$UID"
 PIDFILE="$RUNDIR/vnc.$PGID"
 HOST=$(hostname -I | awk '{print $1}')
 PORT=6080
-SHARE_LINK="http://$NOVNC_SERVER/novnc-unsecure/?host=$HOST&amp;port=$PORT"
+SHARE_LINK="http://$NOVNC_SERVER/novnc/?host=$HOST&amp;port=$PORT"
 
 echo $PGID > $PIDFILE
 
