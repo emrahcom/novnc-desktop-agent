@@ -4,7 +4,7 @@ This script starts a VNC and a websockify instance to allow a remote connection
 via noVNC. A random password created for each session.
 
 ## Dependencies
-This script depends [x11vnc](http://www.karlrunge.com/x11vnc/),
+This script depends on [x11vnc](http://www.karlrunge.com/x11vnc/),
 [websockify](https://github.com/novnc/websockify) and
 [yad](https://github.com/v1cont/yad)
 
