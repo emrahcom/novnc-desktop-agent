@@ -1,7 +1,7 @@
 noVNC Desktop Agent
 ===================
-This script starts a VNC and a websockify instance to allow a remote connection
-via noVNC. A random password created for each session.
+This script starts a `x11vnc` and a `websockify` instance to allow a remote
+connection via noVNC. A random password created for each session.
 
 ## Dependencies
 This script depends on [x11vnc](http://www.karlrunge.com/x11vnc/),
@@ -11,7 +11,7 @@ This script depends on [x11vnc](http://www.karlrunge.com/x11vnc/),
 And thanks to [noVNC](https://github.com/novnc/noVNC) team.
 
 ## Installation
-I tested this script in my Debian Buster box. I installed the dependencies as
+I tested this script in my `Debian Buster` box. I installed the dependencies as
 the following:
 
 ```bash
