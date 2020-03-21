@@ -44,7 +44,7 @@ function cleanup {
 
     pkill -U $UID -f " YAD-$PGID"
     pkill -U $UID -f " VNC-$PGID"
-    sleep 0.2 && pkill -U $UID -9 -f " -tag VNC-$PGID"
+    sleep 0.2 && pkill -U $UID -9 -f " VNC-$PGID"
     pkill -U $UID -f "websockify .*$PORT"
 
     rm -f $PIDFILE
