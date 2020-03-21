@@ -42,8 +42,10 @@ echo $PGID > $PIDFILE
 function cleanup {
     set +e
 
-    pkill -U $UID -f "-tag VNC-$PGID"
-    sleep 0.2 && pkill -U $UID -9 -f "-tag VNC-$PGID"
+    pkill -U $UID -f " YAD-$PGID"
+    pkill -U $UID -f " VNC-$PGID"
+    sleep 0.2 && pkill -U $UID -9 -f " -tag VNC-$PGID"
+    pkill -U $UID -f "websockify .*$PORT"
 
     rm -f $PIDFILE
     pkill -U $UID -g $PGID
@@ -62,8 +64,12 @@ function terminate_active_instances {
     do
         pgid=$(echo $pidfile | cut -d '.' -f2)
 
+        pkill -U $UID -f " YAD-$pgid" || true
+        pkill -U $UID -f " VNC-$pgid" || true
+        sleep 0.2 && pkill -U $UID -9 -f " VNC-$pgid" || true
+        pkill -U $UID -f "websockify .*$PORT" || true
+
         pkill -U $UID -g $pgid || true
-        pkill -U $UID -9 -f "-tag VNC-$pgid" || true
         rm -f $pidfile
     done
 }
@@ -121,14 +127,14 @@ function share-desktop {
 
             # restart websockify if the port is changed
             if [[ "$oldport" != "$VNCPORT" ]]; then
-                pkill -U $UID -f "websockify" || true
+                pkill -U $UID -f "websockify .*$PORT" || true
                 start-websockify &
                 oldport=$VNCPORT
             fi
         # open the permanent splash window if it's not opened before
         elif [[ -n "$(echo $output | egrep 'client_set_net:')" ]] && \
              [[ "$splashed" = false ]]; then
-            pkill -U $UID -f "YAD-$PGID" || true
+            pkill -U $UID -f " YAD-$PGID" || true
             (yad --title="$TITLE" --splash --no-escape --borders=20 \
                 --buttons-layout=edge --button=gtk-close:0 \
                 --text="$MSG_CLOSE" \
