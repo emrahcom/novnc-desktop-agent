@@ -102,7 +102,7 @@ function start-websockify {
     do
         if [[ -n "$(echo $output | egrep 'connecting to')" ]]; then
             ip=$(echo $output | cut -d ' ' -f1)
-            yad --title="$TITLE" --splash --no-escape --borders=20 \
+            yad --title="" --escape-ok --fixed --borders=20 \
                 --text-align=center --timeout=5 --no-buttons \
                 --text="$MSG_CONNECTED" \
                 --form --align=center --field=" :LBL" \
