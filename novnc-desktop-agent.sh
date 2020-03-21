@@ -76,9 +76,9 @@ function terminate_active_instances {
 
 
 # -----------------------------------------------------------------------------
-# create-credential: x11vnc password
+# renew-credential: regenerate the x11vnc password
 # -----------------------------------------------------------------------------
-function create-credential {
+function renew-credential {
     mkdir -p ~/.vnc
     PASSWD=$(shuf -i 100000-999999 -n 1)
     x11vnc -storepasswd $PASSWD ~/.vnc/passwd
@@ -166,8 +166,8 @@ yad --title="$TITLE" --splash --no-escape --borders=20 \
     --text="$MSG_SHARE" \
     -- YAD-$PGID
 
-# create and share the credential
-create-credential
+# renew and share the credential
+renew-credential
 
 # start to share the desktop
 share-desktop
